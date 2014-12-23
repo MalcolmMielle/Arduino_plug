@@ -4,7 +4,7 @@
 
 int getID(char order[], int size);
 char* getOrder(char order[], int size);
-int doWork(int id, char* order[]);
+void doWorktest(int id, char* order[]);
 int getAllInfo(char order[], int size, int* id, char* order_out[]);
 
 
@@ -54,7 +54,7 @@ char* getOrder(char order[], int size){
 	return order + (res - copy); //move by offset
 }
 
-int doWorktest(int id, char* order[]){
+void doWorktest(int id, char* order[]){
 	if(!strcmp(*order, "on")){
 		printf("Lights on mhterfucker !");
 	}
