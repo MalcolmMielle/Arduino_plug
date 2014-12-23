@@ -8,6 +8,26 @@ RF24 radio(9,10);
 
 byte addresses[][6] = {"addr1", "mysel"};
 char* ack="OK";
+//Equivalences between the number of the plug and the arduino pin associated
+int pin_table[6]={1, 2, 3, 4, 5, 6};
+
+/********************µµActual function*********************/
+int doWork(int id, char* order[]){
+        //Converting the id number into the pin numbers
+        int pin=pin_table[id];
+  
+	if(!strcmp(*order, "on")){
+		printf("Lights on mhterfucker !");
+                digitalWrite(pin, HIGH);
+	}
+	else if(!strcmp(*order, "off")){
+		printf("Lights off. Greener planet today");
+                digitalWrite(pin, LOW);
+	}
+	else{
+		printf("Did not find a good looking order for ya.");
+	}
+}
 
 
 void setup(){

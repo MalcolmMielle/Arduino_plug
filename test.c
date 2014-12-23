@@ -35,7 +35,7 @@ int main (int argc, char *argv[]){
 	printf("the id : %d = 2 and the order %s = off\n", num, buffer);
 	
 	printf("ouais %d\n",strcmp(buffer, "on"));
-	doWork(num, &buffer);
+	doWorktest(num, &buffer);
 	/*
 	char na[] = "2;on";
 	char* bu="on";
