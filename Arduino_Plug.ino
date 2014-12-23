@@ -14,22 +14,34 @@ int pin_table[6]={1, 2, 3, 4, 5, 6};
 /********************µµActual function*********************/
 void doWork(int id, char* order[]){
   //Converting the id number into the pin numbers
-  int pin=pin_table[id];
-  if(!strcmp(*order, "on")){
-    printf("Lights on mhterfucker !");
-    digitalWrite(pin, HIGH);
+  if(id>0 && id<sizeof(pin_table)){
+    int pin=pin_table[id];
+    if(!strcmp(*order, "on")){
+      Serial.println("Lights on mhterfucker !");
+      digitalWrite(pin, HIGH);
+    }
+    else if(!strcmp(*order, "off")){
+      Serial.println("Lights off. Greener planet today");
+      digitalWrite(pin, LOW);
+    }
+    else{
+      Serial.println("Did not find a good looking order for ya.");
+    }
   }
-  else if(!strcmp(*order, "off")){
-    printf("Lights off. Greener planet today");
-    digitalWrite(pin, LOW);
-  }
-  else{
-    printf("Did not find a good looking order for ya.");
-  }
-}
-
-void doWork(char* order){
   
+  //No actual pin number
+  else{
+    //All the relay to on
+    if(!strcmp(*order, "on")){
+    
+    }
+    else if (!strcmp(*order,"off")){
+      
+    }
+    else{
+      Serial.println("Did not find a good looking order for you");
+    }
+  }
 }
 
 /************************************************************/
@@ -62,8 +74,8 @@ void loop(){
     while(radio.available(&pipeNo)){
       radio.read(order, radio.getPayloadSize());
       radio.writeAckPayload(pipeNo, ack, strlen(ack));
-      printf("Got a response ");
-      printf(order);
+      Serial.println("Got a response ");
+      Serial.println(order);
       //Got an order, now doing something
       int num=0;
       char* buffer=NULL;
