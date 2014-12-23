@@ -20,5 +20,5 @@ pin number are in the pin_table table and must be completed accordingly. Element
  - on : if a pin number is associated, the corresponding relay is turned on. If no number of pin is associated (meaning the number is either less than 0 or above the size of pin_table) all relays are turned on.
  - off : if a pin number is associated, the corresponding relay is turned off. If no number of pin is associated (meaning the number is either less than 0 or above the size of pin_table) all relays are turned off.
  
- If the order is not understood nothing happen and a error message is printed.
+If the order is not understood nothing happen and a error message is printed.
 
