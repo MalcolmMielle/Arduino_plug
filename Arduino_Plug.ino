@@ -31,12 +31,18 @@ void doWork(int id, char* order[]){
   
   //No actual pin number
   else{
+    int pin=0
     //All the relay to on
     if(!strcmp(*order, "on")){
-    
+      for(i=0;i<sizeof(pin_table);i++){
+        digitalWrite(pin, HIGH);
+      }
     }
+    //All the relay to off
     else if (!strcmp(*order,"off")){
-      
+      for(i=0;i<sizeof(pin_table);i++){
+        digitalWrite(pin, LOW);
+      }      
     }
     else{
       Serial.println("Did not find a good looking order for you");
